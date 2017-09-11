@@ -10,11 +10,60 @@ import {
   ScrollView,
   TouchableOpacity,
   TouchableNativeFeedback,
-  TouchableHighlight
+  TouchableHighlight,
+  DrawerLayoutAndroid
 } from 'react-native';
 class ImageDemo extends Component {
-  render() {
+  render(
+
+  ) {
+    var navigationView = (
+      <View style={styles.container}>
+        <View style={styles.nav_top_view}>
+        <Image 
+           style={{width: 50, height: 50}}
+           source={require('./qq_Bot.png')}
+        />
+        <Text
+          style={{marginTop:10,fontSize:16,color:'white'}}>方贞铭</Text>
+        </View>
+         <TouchableOpacity
+            onPress={this.close}
+          >
+        <View style={styles.nav_item_view}>
+        <Image 
+           style={{width: 20, height: 20}}
+           source={require('./qq_qzone.png')}
+        />
+        <Text
+          style={{fontSize:14,color:'grey',marginLeft:10}}>首页</Text>
+        </View>
+        </TouchableOpacity>
+        <View style={styles.nav_item_view}>
+        <Image 
+           style={{width: 20, height: 20}}
+           source={require('./qq_buy.png')}
+        />
+        <Text
+          style={{fontSize:14,color:'grey',marginLeft:10}}>礼物</Text>
+        </View>
+        <View style={styles.nav_item_view}>
+        <Image 
+           style={{width: 20, height: 20}}
+           source={require('./qq_buy.png')}
+        />
+        <Text
+          style={{fontSize:14,color:'grey',marginLeft:10}}>设置</Text>
+        </View>
+      </View>
+      );
 	return (
+
+    <DrawerLayoutAndroid
+		ref={(drawer) => { this.drawer = drawer; }}
+		drawerWidth={260}
+		drawerPosition={DrawerLayoutAndroid.positions.Left}
+		renderNavigationView={() => navigationView}>
 	  <View style={styles.container}>
 		 
      <View style={styles.title_view}>
@@ -262,7 +311,7 @@ class ImageDemo extends Component {
     </View>
      
 	  </View>
-   
+   </DrawerLayoutAndroid>
 	);
   }
 }
@@ -271,6 +320,22 @@ const styles = StyleSheet.create({
 	flex: 1,
 	backgroundColor: 'white',
   },
+  nav_top_view:{
+    flexDirection:'column',
+    height:150,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor:'#27b5ee',
+    },
+    nav_item_view:{
+      flexDirection:'row',
+      height:50,
+      paddingLeft:30,
+      paddingTop:6,
+      paddingBottom:6,
+      alignItems: 'center',
+      backgroundColor:'#FFFFFF',
+      },
    title_view:{
 	flexDirection:'row',
 	height:50,
