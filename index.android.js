@@ -212,21 +212,21 @@ class ImageDemo extends Component {
 		 </ScrollView>
 		
      <View style={styles.button}>
-        <View style={flex=1}>
+        <View style={styles.button_image}>
           <Image source={require('./qq_Bot.png')} style={{alignSelf:'center',width:28,height:28}}/>
           <Text style={styles.button_text}>
               消息
 			  </Text>
         </View>
       
-        <View style={flex=1}>
+        <View style={styles.button_image}>
           <Image source={require('./qq_Bot.png')} style={{alignSelf:'center',width:28,height:28}}/>
           <Text style={styles.button_text}>
               好友
 			  </Text>
         </View>
        <TouchableNativeFeedback>
-         <View style={flex=1}>
+         <View style={styles.button_image}>
            
           <Image source={require('./qq_Bot.png')} style={{alignSelf:'center',width:28,height:28}}/>
           <Text style={styles.button_text}>
@@ -297,18 +297,20 @@ const styles = StyleSheet.create({
 	paddingLeft:8,
   },
   button: {
-    paddingTop: 20,
+    paddingTop: 15,
     flexDirection:'row',
-    flex:3,
-    justifyContent:'flex-start',
+    justifyContent: 'space-around',
     alignItems: 'center',
     backgroundColor:'white',
+    
   },
 
   button_image:
   {
     justifyContent: 'center',
     alignItems: 'center',
+   
+   
     backgroundColor:'white',
     paddingBottom:15,
   },
