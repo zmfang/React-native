@@ -9,7 +9,8 @@ import {
   Image,
   ScrollView,
   TouchableOpacity,
-  TouchableNativeFeedback
+  TouchableNativeFeedback,
+  TouchableHighlight
 } from 'react-native';
 class ImageDemo extends Component {
   render() {
@@ -25,29 +26,35 @@ class ImageDemo extends Component {
 		<View style={styles.three_image_view}>
    <TouchableNativeFeedback>
       <View style={styles.vertical_view}>
-			  <Image source={require('./qq_qzone.png')} style={{alignSelf:'center',width:45,height:45}} />
+			  <Image source={require('./qq_qzone.png')} style={{alignSelf:'center',width:55,height:55}} />
 			  <Text style={styles.top_text}>
 				好友动态
 			  </Text>
 		  </View>
    </TouchableNativeFeedback>
 		
-		  <View style={styles.vertical_view}>
-			  <Image source={require('./qq_qzone.png')} style={{alignSelf:'center',width:45,height:45}}/>
+    <TouchableNativeFeedback>
+      <View style={styles.vertical_view}>
+			  <Image source={require('./qq_qzone.png')} style={{alignSelf:'center',width:55,height:55}}/>
 			  <Text style={styles.top_text}>
 				附近
 			  </Text>
 		 </View>
-		  <View style={styles.vertical_view}>
-			  <Image source={require('./qq_qzone.png')} style={{alignSelf:'center',width:45,height:45}}/>
+    </TouchableNativeFeedback>
+		  <TouchableNativeFeedback>
+         <View style={styles.vertical_view}>
+			  <Image source={require('./qq_qzone.png')} style={{alignSelf:'center',width:55,height:55}}/>
 			  <Text style={styles.top_text} >
 				兴趣部落
 			  </Text>
 		 </View>
+      </TouchableNativeFeedback>
+		 
 		</View>
     <ScrollView  >
 		<View style={{height:30,backgroundColor:'#f9f9fb'}}/>
-		<View style={styles.rectangle_view}>
+	<TouchableNativeFeedback>
+    <View style={styles.rectangle_view}>
 		  <View style={{flexDirection:'row',alignItems: 'center'}}>
 			  <Image source={require('./qq_buy.png')} style={{alignSelf:'center',width:30,height:30}}/>
 			  <Text style={styles.rectangle_text} >
@@ -56,7 +63,16 @@ class ImageDemo extends Component {
 		  </View>
 		  <Image source={require('./fast_forward.png')} style={{alignSelf:'center',width:20,height:20}}/>
 		 </View>
-		 <View style={styles.rectangle_view}>
+		
+  </TouchableNativeFeedback>
+  <TouchableHighlight 
+		  underlayColor="green"
+		  activeOpacity={0.5}
+		  onPress={()=>{
+		  console.log('我被点击了');
+		  }}
+		>
+    <View style={styles.rectangle_view}>
 		  <View style={{flexDirection:'row',alignItems: 'center'}}>
 			  <Image source={require('./qq_buy.png')} style={{alignSelf:'center',width:30,height:30}}/>
 			  <Text style={styles.rectangle_text} >
@@ -65,7 +81,10 @@ class ImageDemo extends Component {
 		  </View>
 		  <Image source={require('./fast_forward.png')} style={{alignSelf:'center',width:20,height:20}}/>
 		 </View>
-		 <View style={styles.rectangle_view}>
+     </TouchableHighlight>	
+     
+	
+  	 <View style={styles.rectangle_view}>
 		  <View style={{flexDirection:'row',alignItems: 'center'}}>
 			  <Image source={require('./qq_buy.png')} style={{alignSelf:'center',width:30,height:30}}/>
 			  <Text style={styles.rectangle_text} >
@@ -212,19 +231,24 @@ class ImageDemo extends Component {
 		 </ScrollView>
 		
      <View style={styles.button}>
-        <View style={styles.button_image}>
+        <TouchableNativeFeedback>
+           <View style={styles.button_image}>
           <Image source={require('./qq_Bot.png')} style={{alignSelf:'center',width:28,height:28}}/>
           <Text style={styles.button_text}>
               消息
 			  </Text>
         </View>
-      
-        <View style={styles.button_image}>
+        </TouchableNativeFeedback>
+       
+      <TouchableNativeFeedback>
+         <View style={styles.button_image}>
           <Image source={require('./qq_Bot.png')} style={{alignSelf:'center',width:28,height:28}}/>
           <Text style={styles.button_text}>
               好友
 			  </Text>
         </View>
+      </TouchableNativeFeedback>
+       
        <TouchableNativeFeedback>
          <View style={styles.button_image}>
            
@@ -260,15 +284,18 @@ const styles = StyleSheet.create({
 	textAlign:'center'
   },
   three_image_view:{
-	paddingTop: 15,
+  
+  
 	flexDirection:'row',
-	justifyContent: 'space-around',
+	
 	alignItems: 'center',
 	backgroundColor:'white',
   },
   vertical_view:{
 	justifyContent: 'center',
-	alignItems: 'center',
+  alignItems: 'center',
+  flex:1,
+  paddingTop:15,
 	backgroundColor:'white',
 	paddingBottom:15,
   },
@@ -297,20 +324,18 @@ const styles = StyleSheet.create({
 	paddingLeft:8,
   },
   button: {
-    paddingTop: 15,
+    
     flexDirection:'row',
-    justifyContent: 'space-around',
+    
     alignItems: 'center',
     backgroundColor:'white',
     
   },
-
   button_image:
   {
     justifyContent: 'center',
-    alignItems: 'center',
-   
-   
+    paddingTop:15,
+    flex:1,
     backgroundColor:'white',
     paddingBottom:15,
   },
