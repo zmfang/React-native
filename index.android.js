@@ -1,5 +1,5 @@
 
-// 第一次更改
+// 第一次更改,webstorm编辑
 import React, { Component } from 'react';
 import {
   AppRegistry,
