@@ -11,4 +11,4 @@ import {
 } from 'react-native';
 import routers from './routers';
 
-AppRegistry.registerComponent('Demo02', () => routers);
+AppRegistry.registerComponent('Demo01', () => routers);

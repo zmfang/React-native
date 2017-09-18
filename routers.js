@@ -1,7 +1,7 @@
 
 import {StackNavigator} from "react-navigation";
 import MainPage from './mainPage';
-import DetailPagDe from './views/details/detailPage'
+import DetailPagDe from './view/details/detailPage'
 
 
 const routers = StackNavigator({
